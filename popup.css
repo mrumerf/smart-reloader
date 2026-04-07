@@ -1,0 +1,113 @@
+body {
+    width: 400px;
+    box-sizing: border-box;
+}
+
+.main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    position: relative;
+}
+
+.state {
+    position: absolute;
+    top: 1em;
+    right: .5em;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.time-limit {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+    box-sizing: border-box;
+    padding-inline: .5em;
+}
+
+.alarm-time {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    position: absolute;
+    top: 1em;
+    left: .5em;
+}
+
+
+/* Buttons */
+
+.main button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+button.stop-button {
+    background: linear-gradient(135deg, #ef4444, #f87171)
+}
+
+button.save-button {
+    background: linear-gradient(135deg, #10b981, #34d399)
+}
+
+/* Hover effect */
+
+.main button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+
+/* Active click */
+
+.main button:active {
+    transform: scale(0.97);
+}
+
+
+/* Input field */
+
+.main textarea,
+input {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    outline: none;
+    /* min-width: 220px; */
+    transition: all 0.2s ease;
+}
+
+
+/* input {
+    width: ;
+} */
+
+textarea {
+    width: 100%;
+    font-size: 14px;
+    min-height: 40vh;
+}
+
+
+/* Input focus */
+
+.main textarea:focus,
+input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
