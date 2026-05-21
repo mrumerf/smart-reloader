@@ -48,14 +48,8 @@ async function check() {
 
 async function createRandomTab() {
   if (!(await check())) return
-  const { links: linksStorage } = await chrome.storage.local.get(["links"])
 
-  if (!linksStorage) return
-
-  const links = linksStorage.split(",").map((link) => link.trim())
-  const randomValue = Math.floor(Math.random() * links.length)
-
-  const randomLink = links[randomValue]
+  const randomLink = await generateRandomLink()
 
   const tabId = await getTabData()
   if (tabId)
@@ -89,4 +83,19 @@ async function getTabData() {
     return false
 
   }
+}
+
+async function generateRandomLink() {
+  const { links: linksStorage } = await chrome.storage.local.get(["links", "lastLink"])
+  if (!linksStorage) return
+
+  const links = linksStorage.split(",").map((link) => link.trim())
+  const randomValue = Math.floor(Math.random() * links.length)
+  const randomLink = links[randomValue]
+
+  if (randomLink === linksStorage.lastLink)
+    return generateRandomLink()
+
+  chrome.storage.local.set({ lastLink: randomLink })
+  return randomLink
 }

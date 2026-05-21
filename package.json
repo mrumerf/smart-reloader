@@ -1,7 +1,7 @@
 {
   "name": "smart-reloader",
   "displayName": "Smart Reloader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stay Online on a website with custom settings",
   "author": "Muhammad Umer <umer145724@gmail.com>",
   "scripts": {
